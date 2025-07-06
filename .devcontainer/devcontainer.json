@@ -6,10 +6,20 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "editor.errorSquiggles": "never",
-        "editor.quickSuggestions": { "other": true },
+        "editor.quickSuggestions": {
+          "other": true,
+          "comments": false,
+          "strings": false
+        },
         "editor.suggestOnTriggerCharacters": true,
-        "java.errors.incompleteClasspath.severity": "ignore"
+        "editor.suggestSelection": "first",
+        "editor.suggest.showWords": true,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "java.completion.enabled": true,
+        "java.completion.favoriteStaticMembers": [
+          "java.util.concurrent.CompletableFuture.supplyAsync",
+          "java.util.stream.Collectors.toList"
+        ]
       },
       "extensions": [
         "redhat.java",
