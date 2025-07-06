@@ -1,0 +1,21 @@
+{
+  "name": "Java 21",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.errorSquiggles": "never",
+        "editor.quickSuggestions": { "other": true },
+        "editor.suggestOnTriggerCharacters": true,
+        "java.errors.incompleteClasspath.severity": "ignore"
+      },
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug"
+      ]
+    }
+  },
+  "postCreateCommand": "java -version"
+}
