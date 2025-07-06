@@ -1,31 +1,26 @@
 {
-  "name": "Java 21",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "name": "Java 21 Development",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": true,
+      "installGradle": true
+    }
   },
   "customizations": {
     "vscode": {
-      "settings": {
-        "editor.quickSuggestions": {
-          "other": true,
-          "comments": false,
-          "strings": false
-        },
-        "editor.suggestOnTriggerCharacters": true,
-        "editor.suggestSelection": "first",
-        "editor.suggest.showWords": true,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "java.completion.enabled": true,
-        "java.completion.favoriteStaticMembers": [
-          "java.util.concurrent.CompletableFuture.supplyAsync",
-          "java.util.stream.Collectors.toList"
-        ]
-      },
       "extensions": [
-        "redhat.java",
-        "vscjava.vscode-java-debug"
-      ]
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "editor.renderValidationDecorations": "none",
+        "java.errors.incompleteClasspath.severity": "ignore",
+        "java.errors.unresolvedImports.severity": "ignore",
+        "java.errors.deprecated.severity": "ignore",
+        "java.errors.nullAnalysis.severity": "ignore",
+        "java.errors.unnecessaryTypeCheck.severity": "ignore"
+      }
     }
-  },
-  "postCreateCommand": "java -version"
+  }
 }
