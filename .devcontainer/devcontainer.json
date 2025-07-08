@@ -1,26 +1,39 @@
 {
-  "name": "Java 21 Development",
-  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb"
+  },
+  "name": "Java 21 Codespace",
+  "image": "mcr.microsoft.com/vscode/devcontainers/java:21",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "21",
-      "installMaven": true,
-      "installGradle": true
+      "version": "21"
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack"
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test"
       ],
       "settings": {
-        "editor.renderValidationDecorations": "none",
-        "java.errors.incompleteClasspath.severity": "ignore",
-        "java.errors.unresolvedImports.severity": "ignore",
-        "java.errors.deprecated.severity": "ignore",
-        "java.errors.nullAnalysis.severity": "ignore",
-        "java.errors.unnecessaryTypeCheck.severity": "ignore"
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-21",
+            "path": "/usr/local/openjdk-21"
+          }
+        ],
+        "java.jdt.ls.java.home": "/usr/local/openjdk-21",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.completion.enabled": true,
+        // Add these to disable/reduce error highlighting
+       "java.errors.incompleteClasspath.severity": "ignore",
+       "java.validate.enabled": false,
+       "problems.decorations.enabled": false // Optional: hides squiggles in UI
       }
     }
-  }
+  },
+  "postCreateCommand": "java -version"
 }
